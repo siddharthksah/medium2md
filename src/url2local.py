@@ -2,6 +2,7 @@ import os
 import re
 import requests
 import glob
+import shutil
 
 def download_image(url, output_folder):
     response = requests.get(url)
@@ -27,7 +28,7 @@ def update_image_links_in_markdown(markdown_content, output_folder):
 
     return markdown_content, local_image_paths
 
-if __name__ == "__main__":
+def url2local():
     output_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "output")
 
     if not os.path.exists(output_folder):
@@ -55,3 +56,7 @@ if __name__ == "__main__":
             f.write(updated_content)
 
         print("Images downloaded and markdown file updated successfully.")
+
+
+# if __name__ == "__main__":
+#     url2local()

@@ -1,4 +1,4 @@
-# Synthetic training data from Blender + Object Detection with Transfer
+# Synthetic training data from Blender + Object Detection with Transfer Learning = Deep Learning on Steroids!
 
 A deep learning model is only as good as its data. If the data has inherent
 biases, the model will reflect them. The fine-tuning of models still has the
@@ -314,3 +314,4 @@ Object Detection
 Image Generation
 
 Deep Learning
+
