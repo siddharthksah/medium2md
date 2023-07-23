@@ -59,7 +59,7 @@ def update_image_links_in_markdown(markdown_content, output_folder):
     return markdown_content, local_image_paths
 
 
-def url2local():
+def url_to_local():
     """
     Download all images linked in a markdown file and replace the links with local paths.
 
@@ -99,7 +99,7 @@ def url2local():
         with open(input_file_path, 'w') as f:
             f.write(updated_content)
 
-        print("Images downloaded and markdown file updated successfully.")
+        # print("Images downloaded and markdown file updated successfully.")
 
 
 # if __name__ == "__main__":

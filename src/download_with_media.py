@@ -7,7 +7,7 @@ from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright
 
 
-def download_medium_article(article_url):
+def download_medium_article(article_url, output_folder):
     """Download a Medium article and its associated media files.
 
     Args:
@@ -93,15 +93,17 @@ def download_medium_article(article_url):
             f.write("# " + article_title + "\n\n")
             f.write(article_content)
 
-        print("Medium article downloaded successfully!")
-        print(f"Article saved as: {markdown_file}")
-        print(f"Media files saved in: {media_folder}")
+        # print("Medium article downloaded successfully!")
+        # print(f"Article saved as: {markdown_file}")
+        # print(f"Media files saved in: {media_folder}")
 
         return True
 
     except Exception as e:
         print(f"An error occurred: {e}")
         return False
+
+    
 
 
 # if __name__ == "__main__":

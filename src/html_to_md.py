@@ -39,7 +39,7 @@ def convert_html_to_markdown(output_folder):
         with open(md_file_path, 'w') as f:
             f.write(markdown_content)
 
-    print("Conversion to Markdown is complete.")
+    # print("Conversion to Markdown is complete.")
 
 
 # if __name__ == "__main__":
