@@ -1,5 +1,50 @@
-output/*
-output/media/*
-output/local/*
-.gitignore
+# Ignore output and media directories
+/output/
+/output/media/
+/output/local/
+
+# Ignore macOS system files
 .DS_Store
+
+# Ignore project settings
+/.vscode/
+/.idea/
+
+# Ignore Python build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore distributions
+*.egg-info/
+dist/
+build/
+
+# Ignore Python environments
+.venv/
+ENV/
+
+# Ignore Jupyter Notebook
+.ipynb_checkpoints
+
+# Ignore other metadata
+*.bak
+*.swp
+*~
+*.log
+
+# Ignore database files
+*.db
+*.sql
+*.sqlite
+
+# Ignore data science data
+*.csv
+*.xls
+*.xlsx
+*.json
+*.xml
+
+# Ignore archive files
+*.gz
+*.zip
