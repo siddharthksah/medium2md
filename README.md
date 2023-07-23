@@ -4,17 +4,32 @@
   <img src="./docs/demo.png" alt="Medium2md Demo">
 </p>
 
-`Medium2md` is a powerful and user-friendly command-line tool that empowers you to convert your favorite Medium articles into markdown files. Designed in Python, it doesn't just stop at conversion, but goes a step further to download all images within the article, saving them locally and mapping them accurately in the markdown file.
+<p align="center">
+  <a href="https://github.com/siddharthksah/medium2md/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/siddharthksah/medium2md"></a>
+  <a href="https://github.com/siddharthksah/medium2md/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/siddharthksah/medium2md"></a>
+  <a href="https://github.com/siddharthksah/medium2md/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/siddharthksah/medium2md"></a>
+  <a href="https://github.com/siddharthksah/medium2md/blob/main/LICENSE.txt"><img alt="GitHub license" src="https://img.shields.io/github/license/siddharthksah/medium2md"></a>
+</p>
 
-## 🎯 Features
+Convert your favorite Medium articles into markdown files using `Medium2md`, a powerful and user-friendly command-line tool. Designed in Python, it extends beyond simple conversion to download all images within the article, saving them locally and integrating them into your markdown file seamlessly.
 
-- Downloads Medium articles and saves them as HTML.
-- Converts downloaded HTML articles into clean, readable Markdown files.
-- Downloads images within the article, stores them locally, and replaces image URLs in the markdown files with local paths.
-- Cleans up unnecessary data after processing.
-- Interactive CLI interface with progress bars and prompts.
+## Table of Contents
 
-## 🚀 Getting Started
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- **Efficient Conversion**: Download Medium articles as HTML and convert them into clean, readable Markdown files.
+- **Image Handling**: Download images from the article, save them locally, and update image URLs in the markdown files to point to local paths.
+- **Post-Processing**: Automatically clean up unnecessary data after conversion.
+- **User-Friendly**: Interactive CLI interface with progress bars and prompts for an enhanced user experience.
+
+## Getting Started
 
 ### Prerequisites
 
@@ -26,7 +41,7 @@
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/siddharthksah/medium2md
+    git clone https://github.com/siddharthksah/medium2md.git
     ```
 
 2. Navigate into the project directory:
@@ -48,13 +63,13 @@
     pip install -r requirements.txt
     ```
 
-## 💻 Usage
+## Usage
 
-After installation, you can run `medium2md` with the command:
+Run `medium2md` with:
 
 ```bash
 python main.py -u <URL>
-```
+
 
 Replace <URL> with the URL of the Medium article you wish to download. If no URL is provided, the script will prompt you to input one.
 
@@ -85,5 +100,6 @@ The converted articles are stored in the output directory, which is created in t
 We welcome contributions! If you would like to make changes, please submit a pull request. For substantial updates, we request that you open an issue first to discuss the proposed changes.
 
 ## 📃 License
-`Medium2md` is licensed under the terms of the MIT License. See the LICENSE file for the full text.
+`Medium2md` is licensed under the terms of the [MIT License](./LICENSE.txt). For the full text, see the [LICENSE](./LICENSE.txt) file.
+
 
