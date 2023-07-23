@@ -69,7 +69,7 @@ Run `medium2md` with:
 
 ```bash
 python main.py -u <URL>
-
+```
 
 Replace <URL> with the URL of the Medium article you wish to download. If no URL is provided, the script will prompt you to input one.
 
