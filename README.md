@@ -57,11 +57,14 @@ Convert your favorite Medium articles into markdown files using `Medium2md`, a p
     conda activate medium2md
     ```
 
-4. Install the required Python packages:
+4. Install the package and its dependencies using `setup.py`:
 
     ```bash
-    pip install -r requirements.txt
+    python setup.py install
     ```
+
+   This will automatically install all required packages listed in `setup.py`'s `install_requires` section.
+
 
 ## Usage
 
