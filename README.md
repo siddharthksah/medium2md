@@ -26,7 +26,7 @@
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your_username/medium2md.git
+    git clone https://github.com/siddharthksah/medium2md
     ```
 
 2. Navigate into the project directory:
@@ -60,7 +60,7 @@ Replace <URL> with the URL of the Medium article you wish to download. If no URL
 
 When the process is complete, the script will ask if you wish to open the downloaded markdown file in your default editor.
 
-Output
+## Output
 The converted articles are stored in the output directory, which is created in the project's root directory.
 
 ## 📚 Project Structure
