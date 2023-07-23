@@ -1,7 +1,7 @@
 # Medium2md
 
 <p align="center">
-  <img src=".demo.png" alt="Medium2md Demo">
+  <img src="demo.png" alt="Medium2md Demo">
 </p>
 
 <p align="center">
