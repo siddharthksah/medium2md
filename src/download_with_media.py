@@ -1,12 +1,36 @@
 import os
 import requests
 from bs4 import BeautifulSoup
-from markdownify import markdownify
 from readability import Document
-import re
+import shutil
 from urllib.parse import urljoin
+from playwright.sync_api import sync_playwright
+
+def get_media_urls(url):
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+        # Limit playwright to capture network requests only during the initial page load
+        page.route("**", lambda route, request: route.continue_())
+        page.goto(url)
+        page.wait_for_load_state()
+        page_content = page.content()
+        browser.close()
+
+    # Parse the HTML content using BeautifulSoup
+    soup = BeautifulSoup(page_content, 'html.parser')
+    media_urls = [urljoin(url, img['src']) for img in soup.find_all('img')]
+
+    return page_content, media_urls
 
 def download_medium_article(url, output_folder):
+    # Get the page content and media URLs using playwright
+    page_content, media_urls = get_media_urls(url)
+
+    if not media_urls:
+        print("No media found in the article.")
+        return
+
     # Send a GET request to the Medium article URL
     response = requests.get(url)
     response.raise_for_status()
@@ -15,10 +39,6 @@ def download_medium_article(url, output_folder):
     doc = Document(response.text)
     article_title = doc.title()
     article_content = doc.summary()
-
-    # Find all the media URLs in the article
-    soup = BeautifulSoup(article_content, 'html.parser')
-    media_urls = [urljoin(url, img['src']) for img in soup.find_all('img')]
 
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
@@ -29,33 +49,62 @@ def download_medium_article(url, output_folder):
     if not os.path.exists(media_folder):
         os.makedirs(media_folder)
 
+    # List of valid image extensions
+    valid_image_extensions = ['.jpg', '.jpeg', '.png', '.gif']
+
     # Download and save media files in the media folder
+    media_files = {}
     for idx, media_url in enumerate(media_urls):
-        response = requests.get(media_url)
-        response.raise_for_status()
         media_extension = os.path.splitext(media_url.split("/")[-1])[1]
         media_filename = f"media_{idx+1}{media_extension}"
         media_file = os.path.join(media_folder, media_filename)
-        with open(media_file, 'wb') as media_f:
-            media_f.write(response.content)
+        if media_extension.lower() in valid_image_extensions:
+            try:
+                response = requests.get(media_url, stream=True)
+                response.raise_for_status()
+                with open(media_file, 'wb') as out_file:
+                    shutil.copyfileobj(response.raw, out_file)
+                del response
+                # Add the media file and its URL to the dictionary
+                media_files[media_filename] = media_url
+            except Exception as e:
+                print(f"Could not download: {media_url}")
+                print(f"Error: {e}")
 
-    # Replace image URLs in the article content with relative paths to the media folder
-    for idx, img in enumerate(soup.find_all('img')):
-        img['src'] = f"./media/media_{idx+1}{os.path.splitext(img['src'])[1]}"
-
-    # Convert the article content to Markdown format
-    markdown_content = markdownify(str(soup))
+    # Replace image URLs in the article content with proper image tags
+    for img in BeautifulSoup(article_content, 'html.parser').find_all('img'):
+        img_src = img['src']
+        for media_filename, media_url in media_files.items():
+            if media_url == urljoin(url, img_src):
+                img['src'] = f"./media/{media_filename}"
+                break
 
     # Save the article markdown locally
     markdown_file = os.path.join(output_folder, f"{article_title}.md")
     with open(markdown_file, 'w', encoding='utf-8') as f:
-        f.write(markdown_content)
+        # Write the images in the original HTML format
+        f.write(page_content)
+
+        # Write the remaining text as the article content
+        f.write("\n\n")
+        f.write("# " + article_title + "\n\n")
+        f.write(article_content)
 
     print("Medium article downloaded successfully!")
     print(f"Article saved as: {markdown_file}")
     print(f"Media files saved in: {media_folder}")
 
+    return article_title
+
 if __name__ == "__main__":
-    article_url = "https://siddharthksah.medium.com/a-sorta-kinda-hitchhikers-guide-to-synthetic-data-ad722798af63"
-    output_folder = "output"
-    download_medium_article(article_url, output_folder)
+    # article_url = "https://siddharthksah.medium.com/synthetic-data-test-article-727e1f8ac2cb"
+
+    # article_url = "https://siddharthksah.medium.com/a-sorta-kinda-hitchhikers-guide-to-synthetic-data-ad722798af63"
+    article_url = "https://siddharthksah.medium.com/synthetic-training-data-object-detection-with-transfer-learning-deep-learning-on-steroids-e20f76bd4269"
+    output_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "output")
+
+    # Delete the old output folder if it exists
+    if os.path.exists(output_folder):
+        shutil.rmtree(output_folder)
+
+    article_title = download_medium_article(article_url, output_folder)

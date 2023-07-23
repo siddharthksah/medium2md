@@ -48,6 +48,6 @@ def download_medium_article(url, output_folder):
         print(f"Media files saved in: {asset_folder}")
 
 if __name__ == "__main__":
-    article_url = "https://siddharthksah.medium.com/a-sorta-kinda-hitchhikers-guide-to-synthetic-data-ad722798af63"
+    article_url = "https://siddharthksah.medium.com/synthetic-data-test-article-727e1f8ac2cb"
     output_folder = "output"
     download_medium_article(article_url, output_folder)
