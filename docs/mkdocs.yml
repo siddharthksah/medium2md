@@ -1,0 +1,38 @@
+site_name: Medium2md Documentation
+site_url: https://github.com/siddharthksah/medium2md
+site_description: A powerful and user-friendly command-line tool for converting Medium articles to markdown with images.
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Usage: getting-started/usage.md
+  - Features: features.md
+  - Project Structure: project-structure.md
+  - Contributing: contributing.md
+  - License: license.md
+
+plugins:
+  - search
+  - mkdocs-material:
+      palette:
+        primary: "#007BFF"
+        accent: "#00BCD4"
+      font:
+        text: "Roboto"
+        code: "Roboto Mono"
+      logo:
+        icon: "https://cdn-icons-png.flaticon.com/128/11520/11520591.png"
+        name: "Medium2md"
+      favicon: "https://cdn-icons-png.flaticon.com/128/11520/11520679.png"
+      social:
+        - type: github
+          link: "https://github.com/siddharthksah/medium2md"
+        - type: twitter
+          link: "https://twitter.com/siddharthksah"
+      theme:
+        name: "material"
+        language: "en"
+        feature:
+          tabs: true
+          highlightjs: true
