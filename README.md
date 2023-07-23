@@ -45,6 +45,7 @@ Output
 The downloaded and converted articles are stored in the output directory, which is created in the root directory of the project.
 
 Project Structure
+```markdown
 .
 ├── LICENSE.txt
 ├── README.md
@@ -59,6 +60,7 @@ Project Structure
     ├── html_to_md.py
     ├── main.py
     └── url_to_local.py
+```
 
 Contributing
 If you'd like to contribute to this project, feel free to submit a pull request. For major changes, please open an issue first to discuss the proposed change.
