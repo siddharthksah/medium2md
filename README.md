@@ -82,6 +82,20 @@ When the process is complete, the script will ask if you wish to open the downlo
 ## Output
 The converted articles are stored in the output directory, which is created in the project's root directory.
 
+## Unittests
+
+### Running Unittests
+
+To run the unittests for the `Medium2md` project, navigate to the root directory of the project and use the following command:
+
+```bash
+python -m unittest discover unittests
+```
+
+This will automatically discover and run all the unittests in the unittests directory.
+
+Please ensure that you have installed the required packages for the project by following the installation instructions in the `Getting Started` section.
+
 ## 📚 Project Structure
 ```markdown
 .
