@@ -55,4 +55,9 @@ setuptools.setup(
             "medium2md=src.main:main",
         ],
     },
+    project_urls={
+        "Bug Tracker": "https://github.com/siddharthksah/medium2md/issues",
+        "Documentation": "https://github.com/siddharthksah/medium2md#readme",
+        "Source Code": "https://github.com/siddharthksah/medium2md",
+    },
 )

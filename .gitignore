@@ -48,3 +48,7 @@ ENV/
 # Ignore archive files
 *.gz
 *.zip
+
+# Ignore cache files
+*.cache
+src/__pycache__
