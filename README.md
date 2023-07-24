@@ -60,7 +60,8 @@ Convert your favorite Medium articles into markdown files using `Medium2md`, a p
 4. Install the package and its dependencies using `setup.py`:
 
     ```bash
-    python setup.py install
+    python3 setup.py install
+    playwright install
     ```
 
    This will automatically install all required packages listed in `setup.py`'s `install_requires` section.
@@ -71,7 +72,7 @@ Convert your favorite Medium articles into markdown files using `Medium2md`, a p
 Run `medium2md` with:
 
 ```bash
-python main.py -u <URL>
+python3 src/main.py -u <URL>
 ```
 
 Replace <URL> with the URL of the Medium article you wish to download. If no URL is provided, the script will prompt you to input one.
