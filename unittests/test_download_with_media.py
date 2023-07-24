@@ -1,7 +1,7 @@
 import os
 import unittest
 from unittest.mock import patch, Mock
-from download_with_media import download_medium_article
+from src.download_with_media import download_medium_article
 
 
 class TestDownloadWithMedia(unittest.TestCase):

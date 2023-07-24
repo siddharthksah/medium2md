@@ -1,6 +1,10 @@
 import os
+import sys, shutil
+# Add the parent directory of the 'src' directory to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import unittest
-from clean_md import list_markdown_files, process_single_file, extract_first_heading_and_next_line, \
+
+from src.clean_md import list_markdown_files, process_single_file, extract_first_heading_and_next_line, \
     remove_section_after, remove_until, add_heading, find_last_line_containing, delete_lines_from
 
 

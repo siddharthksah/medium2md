@@ -1,7 +1,7 @@
 import os
 import unittest
 from unittest.mock import patch, MagicMock
-from url_to_local import download_image, update_image_links_in_markdown
+from src.url_to_local import download_image, update_image_links_in_markdown
 
 class TestUrlToLocal(unittest.TestCase):
 

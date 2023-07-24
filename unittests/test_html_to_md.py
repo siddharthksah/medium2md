@@ -1,7 +1,7 @@
 import os
 import unittest
 from unittest.mock import patch
-from html_to_md import convert_html_to_markdown
+from src.html_to_md import convert_html_to_markdown
 
 class TestHtmlToMd(unittest.TestCase):
 
