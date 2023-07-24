@@ -53,7 +53,7 @@ Convert your favorite Medium articles into markdown files using `Medium2md`, a p
 3. Create a new conda environment and activate it:
 
     ```bash
-    conda create --name medium2md python=3.8
+    conda create --name medium2md python=3.8 -y
     conda activate medium2md
     ```
 
