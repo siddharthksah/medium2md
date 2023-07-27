@@ -139,6 +139,7 @@ def main():
     # Parse arguments
     parser = argparse.ArgumentParser(description='Download Medium articles with images and convert them into markdown files.')
     parser.add_argument('-u', '--url', type=str, help='URL of the Medium article')
+    parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS, help='Show this help message and exit')
     args = parser.parse_args()
 
     # If no URL is given, prompt the user to enter it
