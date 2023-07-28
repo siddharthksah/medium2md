@@ -1,9 +1,4 @@
 ![Header](./header.png)
-
-<p align="center">
-  <img src="demo.png" alt="Medium2md Demo">
-</p>
-
 <p align="center">
   <a href="https://github.com/siddharthksah/medium2md/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/siddharthksah/medium2md"></a>
   <a href="https://github.com/siddharthksah/medium2md/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/siddharthksah/medium2md"></a>
@@ -12,6 +7,10 @@
 </p>
 
 Convert your favorite Medium articles into markdown files using `Medium2md`, a powerful and user-friendly command-line tool. Designed in Python, it extends beyond simple conversion to download all images within the article, saving them locally and integrating them into your markdown file seamlessly.
+
+<p align="center">
+  <img src="demo.png" alt="Medium2md Demo">
+</p>
 
 ## Table of Contents
 
